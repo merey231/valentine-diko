@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>14 февраля 💌</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: "Segoe UI", Arial, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: white;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        .buttons {
+            display: flex;
+            gap: 30px;
+        }
+        button {
+            padding: 15px 40px;
+            font-size: 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: white;
+        }
+        #yes { background-color: #e63946; }
+        #yes:hover { background-color: #ff4d6d; }
+        #no { background-color: #6a0dad; }
+        #no:hover { background-color: #9b30ff; }
+    </style>
+</head>
+<body>
+
+<h1>Ты пойдёшь со мной на свидание 14 февраля? 💖</h1>
+<div class="buttons">
+    <button id="yes" onclick="goNext()">Да ✅</button>
+    <button id="no">Нет ❌</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+
+let yesSize = 20;
+yesBtn.style.fontSize = yesSize + "px";
+
+noBtn.addEventListener("mouseover", () => {
+    // кнопка "Да" увеличивается
+    yesSize += 5;
+    yesBtn.style.fontSize = yesSize + "px";
+
+    // кнопка "Нет" убегает в случайное место
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+function goNext() {
+    window.location.href = "yay.html"; // переход на вторую страницу
+}
+</script>
+
+</body>
+</html>
